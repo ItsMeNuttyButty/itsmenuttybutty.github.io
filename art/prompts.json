@@ -1,0 +1,331 @@
+[
+  {
+    "id": "art-0",
+    "category": "coding",
+    "name": "Circuit Wolf",
+    "subject": "A cobalt-armoured mechanical wolf with luminous circuit traces, leaping through an electric workshop.",
+    "file": "art-0.webp"
+  },
+  {
+    "id": "art-1",
+    "category": "coding",
+    "name": "Clockwork Mage",
+    "subject": "A brass automaton wizard with an intricate gear halo and a staff emitting blue code-like sparks.",
+    "file": "art-1.webp"
+  },
+  {
+    "id": "art-2",
+    "category": "coding",
+    "name": "Iron Spider",
+    "subject": "A six-legged chrome arachnid with emerald energy filaments, crouching on a futuristic terminal.",
+    "file": "art-2.webp"
+  },
+  {
+    "id": "art-3",
+    "category": "coding",
+    "name": "Copper Sentinel",
+    "subject": "A bulky copper robot guardian with an amber core and rectangular shield in a mechanical forge.",
+    "file": "art-3.webp"
+  },
+  {
+    "id": "art-4",
+    "category": "web",
+    "name": "Network Dragon",
+    "subject": "A sleek turquoise dragon with translucent segmented wings and glowing network threads soaring above digital towers.",
+    "file": "art-4.webp"
+  },
+  {
+    "id": "art-5",
+    "category": "web",
+    "name": "Portal Weaver",
+    "subject": "A masked violet spirit with long flowing ribbons weaving luminous portals in a starry cyberspace.",
+    "file": "art-5.webp"
+  },
+  {
+    "id": "art-6",
+    "category": "web",
+    "name": "Pixel Phoenix",
+    "subject": "A fiery coral phoenix with geometric glowing feathers rising above floating crystalline screens.",
+    "file": "art-6.webp"
+  },
+  {
+    "id": "art-7",
+    "category": "web",
+    "name": "Cloud Leviathan",
+    "subject": "A pale silver sky serpent winding around blue crystalline clouds and a floating citadel.",
+    "file": "art-7.webp"
+  },
+  {
+    "id": "art-8",
+    "category": "creative",
+    "name": "Ink Hydra",
+    "subject": "A jet black hydra with three fluid ink heads and vivid magenta ink splashes on a surreal parchment landscape.",
+    "file": "art-8.webp"
+  },
+  {
+    "id": "art-9",
+    "category": "creative",
+    "name": "Prism Illusionist",
+    "subject": "A mysterious teal-robed masked illusionist with a fan of floating coloured glass prisms.",
+    "file": "art-9.webp"
+  },
+  {
+    "id": "art-10",
+    "category": "creative",
+    "name": "Paint Dragon",
+    "subject": "A small fierce rainbow-scaled dragon with paintbrush horns, casting arcs of bright paint through the air.",
+    "file": "art-10.webp"
+  },
+  {
+    "id": "art-11",
+    "category": "creative",
+    "name": "Reel Specter",
+    "subject": "An elegant spectral figure wrapped in bronze film ribbons under a dramatic violet spotlight.",
+    "file": "art-11.webp"
+  },
+  {
+    "id": "art-12",
+    "category": "learning",
+    "name": "Rune Owl",
+    "subject": "A wise white owl with sapphire runes on its wings flying through an ancient illuminated library.",
+    "file": "art-12.webp"
+  },
+  {
+    "id": "art-13",
+    "category": "learning",
+    "name": "Astral Scholar",
+    "subject": "A hooded midnight-blue scholar levitating a golden astrolabe among stars and floating books.",
+    "file": "art-13.webp"
+  },
+  {
+    "id": "art-14",
+    "category": "learning",
+    "name": "Memory Sphinx",
+    "subject": "An emerald feline sphinx with luminous hieroglyph armour resting above a crystalline archive.",
+    "file": "art-14.webp"
+  },
+  {
+    "id": "art-15",
+    "category": "learning",
+    "name": "Lantern Sage",
+    "subject": "A silver-haired forest sage with antler-shaped staff holding a golden knowledge lantern in a misty ruin.",
+    "file": "art-15.webp"
+  },
+  {
+    "id": "art-16",
+    "category": "home",
+    "name": "Stone Golem",
+    "subject": "A broad moss-covered stone guardian carrying an enormous chisel with amber runes in its chest.",
+    "file": "art-16.webp"
+  },
+  {
+    "id": "art-17",
+    "category": "home",
+    "name": "Forge Beetle",
+    "subject": "A red bronze rhinoceros beetle with a furnace abdomen and riveted wings in a magical forge.",
+    "file": "art-17.webp"
+  },
+  {
+    "id": "art-18",
+    "category": "home",
+    "name": "Timber Titan",
+    "subject": "A towering living oak guardian with carved wooden armour and a glowing green heart in a sunlit workshop.",
+    "file": "art-18.webp"
+  },
+  {
+    "id": "art-19",
+    "category": "home",
+    "name": "Hearth Griffin",
+    "subject": "A warm copper-feathered griffin with stone lion legs and ember wings above a medieval rooftop.",
+    "file": "art-19.webp"
+  },
+  {
+    "id": "art-20",
+    "category": "writing",
+    "name": "Scroll Wyrm",
+    "subject": "A serpentine parchment dragon with scrolling ribbon wings and a glowing ink quill horn.",
+    "file": "art-20.webp"
+  },
+  {
+    "id": "art-21",
+    "category": "writing",
+    "name": "Quill Knight",
+    "subject": "An ivory and burgundy armoured knight wielding a huge luminous feather quill like a lance.",
+    "file": "art-21.webp"
+  },
+  {
+    "id": "art-22",
+    "category": "writing",
+    "name": "Story Kitsune",
+    "subject": "A golden fox spirit with flowing manuscript tails beneath a crimson moon and floating pages.",
+    "file": "art-22.webp"
+  },
+  {
+    "id": "art-23",
+    "category": "writing",
+    "name": "Map Keeper",
+    "subject": "A hooded sand-coloured ranger with compass armour holding a floating magical map in a windswept desert.",
+    "file": "art-23.webp"
+  },
+  {
+    "id": "art-24",
+    "category": "personal",
+    "name": "Dawn Warrior",
+    "subject": "A heroic gold and white armoured warrior with a radiant sword at sunrise on a mountain peak.",
+    "file": "art-24.webp"
+  },
+  {
+    "id": "art-25",
+    "category": "personal",
+    "name": "Trail Stag",
+    "subject": "A majestic jade stag with constellation antlers and travel talismans standing on an alpine ridge.",
+    "file": "art-25.webp"
+  },
+  {
+    "id": "art-26",
+    "category": "personal",
+    "name": "Resolve Monk",
+    "subject": "A determined crimson-robed martial monk with a glowing energy ring behind their shoulders.",
+    "file": "art-26.webp"
+  },
+  {
+    "id": "art-27",
+    "category": "personal",
+    "name": "Summit Valkyrie",
+    "subject": "A silver and ice-blue winged spear warrior soaring above snow covered mountain summits.",
+    "file": "art-27.webp"
+  },
+  {
+    "id": "art-28",
+    "category": "other",
+    "name": "Moon Jelly",
+    "subject": "An ethereal lavender jellyfish spirit with a crescent core and curling luminescent tentacles in a cosmic sea.",
+    "file": "art-28.webp"
+  },
+  {
+    "id": "art-29",
+    "category": "other",
+    "name": "Mushroom Trickster",
+    "subject": "A mischievous tiny mushroom goblin with an oversized scarlet cap, acorn armour and mischievous grin.",
+    "file": "art-29.webp"
+  },
+  {
+    "id": "art-30",
+    "category": "other",
+    "name": "Crystal Chimera",
+    "subject": "A powerful sapphire crystal chimera with lion body, ram horns and a serpent tail in a sparkling cavern.",
+    "file": "art-30.webp"
+  },
+  {
+    "id": "art-31",
+    "category": "other",
+    "name": "Chaos Jackalope",
+    "subject": "A strange violet jackalope with branching lightning antlers bounding between floating dream islands.",
+    "file": "art-31.webp"
+  },
+  {
+    "id": "art-32",
+    "category": "enemy",
+    "name": "Rust Hound",
+    "subject": "A menacing rusty iron hound with red eyes and broken mechanical jaws in a ruined workshop.",
+    "file": "art-32.webp"
+  },
+  {
+    "id": "art-33",
+    "category": "enemy",
+    "name": "Glitch Sorcerer",
+    "subject": "A sinister black and magenta robed sorcerer with fractured angular aura and floating corrupted crystal shards.",
+    "file": "art-33.webp"
+  },
+  {
+    "id": "art-34",
+    "category": "enemy",
+    "name": "Scope Devourer",
+    "subject": "A vast purple horned dragon swallowing countless glowing orbs, surrounded by tangled magical chains.",
+    "file": "art-34.webp"
+  },
+  {
+    "id": "art-35",
+    "category": "enemy",
+    "name": "Deadline Reaper",
+    "subject": "A dark skeletal clockwork reaper with an enormous hourglass scythe under a blood red moon.",
+    "file": "art-35.webp"
+  },
+  {
+    "id": "art-36",
+    "category": "enemy",
+    "name": "Doubt Gorgon",
+    "subject": "A black marble gorgon with smoky serpent hair and piercing violet eyes in a crumbling temple.",
+    "file": "art-36.webp"
+  },
+  {
+    "id": "art-37",
+    "category": "enemy",
+    "name": "Distraction Imp",
+    "subject": "A sharp-featured red imp juggling glittering trinkets and glowing little windows on a chaotic backdrop.",
+    "file": "art-37.webp"
+  },
+  {
+    "id": "art-38",
+    "category": "enemy",
+    "name": "Tomorrow Wraith",
+    "subject": "A misty pale blue hooded wraith with an endless looping clock behind it in a frozen twilight graveyard.",
+    "file": "art-38.webp"
+  },
+  {
+    "id": "art-39",
+    "category": "enemy",
+    "name": "Feature Hydra",
+    "subject": "A threatening emerald hydra with many distinctly shaped mechanical heads emerging from a broken forge.",
+    "file": "art-39.webp"
+  },
+  {
+    "id": "art-40",
+    "category": "support",
+    "name": "Monster Reborn",
+    "subject": "A radiant golden ankh floating above an opening stone sarcophagus as an emerald spirit rises in a spiral of light.",
+    "file": "art-40.webp"
+  },
+  {
+    "id": "art-41",
+    "category": "support",
+    "name": "Pot of Greed",
+    "subject": "An original grinning jade treasure urn with gold handles bursting with glowing scrolls and enchanted coins.",
+    "file": "art-41.webp"
+  },
+  {
+    "id": "art-42",
+    "category": "support",
+    "name": "Change of Heart",
+    "subject": "Two contrasting angelic and shadowy silhouettes intertwined around a luminous ruby heart, magical energy changing sides.",
+    "file": "art-42.webp"
+  },
+  {
+    "id": "art-43",
+    "category": "support",
+    "name": "Polymerization",
+    "subject": "Two distinct spectral beasts spiralling into one luminous fusion vortex of cobalt and fiery orange.",
+    "file": "art-43.webp"
+  },
+  {
+    "id": "art-44",
+    "category": "support",
+    "name": "Time Wizard",
+    "subject": "An original tiny clock-faced wizard with a whimsical pointed hat and ornate staff bending swirling golden time rings.",
+    "file": "art-44.webp"
+  },
+  {
+    "id": "art-45",
+    "category": "support",
+    "name": "Mirror Force",
+    "subject": "An enormous crystalline silver mirror shield reflecting a crimson energy beam back into a storm of violet glass shards.",
+    "file": "art-45.webp"
+  },
+  {
+    "id": "art-46",
+    "category": "support",
+    "name": "Abandonment Surge",
+    "subject": "A sinister green spell vortex pouring violent neon power into a black monster silhouette beneath a broken project scroll.",
+    "file": "art-46.webp"
+  }
+]
