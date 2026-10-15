@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101112">
+<title>The Unclaimed — Spawn vs. Cenobites</title>
+<meta name="description" content="A complete 32-page supernatural horror fan comic. Open the cover and turn the pages.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/page-00.png" as="image">
+<link rel="stylesheet" href="style.css">
+<script defer src="model.js"></script><script defer src="comic-data.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#book">Skip to comic</a>
+<header class="masthead">
+<a class="wordmark" href="#" id="home" aria-label="Return to cover"><span class="sigil" aria-hidden="true">◇</span><span>THE UNCLAIMED<small>SPAWN vs. CENOBITES</small></span></a>
+<span class="edition">A SUPERNATURAL HORROR ONE-SHOT <b>01</b></span>
+<button class="plain" id="help" aria-label="Reading controls and credits">Reader guide <span aria-hidden="true">↗</span></button>
+</header>
+<main>
+<section class="reader" aria-label="Comic reader">
+<div class="reader-top">
+<div class="issue"><span class="dot"></span> COMPLETE ISSUE <span class="divider">/</span> <span>32 PAGES</span></div>
+<div class="tools" aria-label="Reader options">
+<button id="pages" title="Browse pages">▦ <span>Pages</span></button>
+<button id="mode" aria-pressed="false" title="Toggle single-page view">▥ <span>Single page</span></button>
+<button id="zoom" title="Zoom current page">⊕ <span>Zoom</span></button>
+<button id="fullscreen" title="Enter fullscreen">⛶ <span>Fullscreen</span></button>
+</div>
+</div>
+<div class="reading-stage">
+<button class="arrow previous" id="previous" aria-label="Previous page" title="Previous (left arrow)">‹</button>
+<div class="book" id="book" tabindex="0" aria-label="Comic pages. Use left and right arrow keys to turn pages.">
+<div class="page left-page" id="left"></div><div class="page right-page" id="right"></div>
+<div class="spine" aria-hidden="true"></div>
+</div>
+<button class="arrow following" id="next" aria-label="Next page" title="Next (right arrow)">›</button>
+</div>
+<div class="reader-bottom">
+<div class="page-status"><span class="page-label" id="page-label" aria-live="polite">Cover</span><span id="chapter-label">The Unclaimed</span></div>
+<label class="scrubber"><span class="sr-only">Go to page</span><input id="progress" type="range" min="0" max="32" value="0" aria-valuetext="Cover"></label>
+<button class="plain restart" id="restart">Back to cover <span aria-hidden="true">↶</span></button>
+</div>
+<p class="reading-hint" id="hint">Click a page edge, swipe, or use ← → to turn. Double-click a page to zoom.</p>
+<p class="reader-message" id="message" role="status"></p>
+</section>
+<details class="transcript" id="transcript"><summary>Read page transcript <span aria-hidden="true">＋</span></summary><div id="transcript-content"></div></details>
+</main>
+<footer class="site-footer"><span>AN UNOFFICIAL FAN COMIC</span><span>Original crossover story · AI-generated artwork</span><button class="plain" id="credits">Story &amp; credits</button></footer>
+<dialog id="page-dialog" aria-labelledby="page-dialog-title">
+<div class="dialog-head"><div><span class="eyebrow">THE UNCLAIMED</span><h2 id="page-dialog-title">Find your page</h2></div><button class="close" data-close aria-label="Close page browser">×</button></div>
+<div class="page-grid" id="page-grid"></div>
+</dialog>
+<dialog id="zoom-dialog" class="zoom-dialog" aria-labelledby="zoom-title">
+<div class="dialog-head zoom-head"><h2 id="zoom-title">Page detail</h2><div class="zoom-actions" id="zoom-actions"></div><button id="zoom-scale" aria-pressed="false" title="Toggle full-resolution zoom">100%</button><button class="close" data-close aria-label="Close zoom">×</button></div>
+<div class="zoom-scroll"><img id="zoom-image" alt="" width="1024" height="1536"></div>
+<p class="zoom-tip">Choose 100% for full detail, then scroll to explore. Choose Fit page to return.</p>
+</dialog>
+<dialog id="guide-dialog" aria-labelledby="guide-title">
+<div class="dialog-head"><div><span class="eyebrow">READER GUIDE</span><h2 id="guide-title">Open the door.</h2></div><button class="close" data-close aria-label="Close guide">×</button></div>
+<div class="guide-copy">
+<p>At the height of his divine power, Spawn follows a grieving woman into Leviathan’s Labyrinth. He can break every chain. But can he free people who have learned to fear the open door?</p>
+<h3>Reading controls</h3>
+<p>Use the side arrows, click the outside edge of a page, or swipe horizontally. On a keyboard, use ← and →; Home returns to the cover and End opens the final page.</p>
+<p>Choose <strong>Pages</strong> to jump anywhere, <strong>Single page</strong> for a larger individual page, or <strong>Zoom</strong> to inspect the full-resolution artwork. Double-click a page to zoom directly. Your reading position is saved on this device when browser storage is available.</p>
+<h3>About the comic</h3>
+<p><em>Spawn vs. Cenobites: The Unclaimed</em> is an original, unofficial crossover fan comic created for Nutty: one cover, 32 story pages and 96 panels. Story, panel script and artwork were created with ChatGPT; illustrations are AI-generated.</p>
+<p>Spawn was created by Todd McFarlane. Hellraiser and its Cenobites were created by Clive Barker. Their respective owners retain their characters. This story invents its crossover rules and is not official continuity.</p>
+<p class="content-note">Contains supernatural horror, disturbing imagery, bereavement and fantasy violence.</p>
+</div>
+</dialog>
+<noscript><p class="no-script">Enable JavaScript for page turns, or <a href="assets/page-00.png">open the cover</a> and view the numbered images in the assets folder.</p></noscript>
+</body></html>
