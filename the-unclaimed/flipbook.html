@@ -1,0 +1,94 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Turn the pages of The Last Question, a Jigsaw and Pinhead comic."><title>The Last Question — Page-turning reader</title><style>body{margin:0;background:#111315}#nutty-reader{max-width:1200px;margin:auto}.return-link{display:block;max-width:1200px;margin:16px auto;padding:0 24px;color:#bca477;font:14px Arial}</style></head><body><a class="return-link" href="index.html">← Comic home &amp; classic reader</a><div id="nutty-reader">
+<style>
+#nutty-reader{background:#111315;color:#e7e0d3;font:14px Arial,sans-serif;padding:22px 16px 16px;box-sizing:border-box;border-radius:8px}
+#nutty-reader *{box-sizing:border-box}
+#nutty-reader header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:0 90px 16px 8px}
+#nutty-reader h2{font:400 24px Georgia,serif;margin:0}
+#nutty-reader .eyebrow{color:#bca477;font-size:10px;letter-spacing:3px;margin-bottom:7px}
+#nutty-reader .stage{width:100%;position:relative;overflow:hidden;background:radial-gradient(ellipse,#303435 0%,#171a1c 60%,#111315 95%);border-radius:4px}
+#nutty-reader canvas{display:block;width:100%;height:auto;touch-action:none;cursor:grab}
+#nutty-reader canvas:active{cursor:grabbing}
+#nutty-reader nav{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:16px}
+#nutty-reader button,#nutty-reader select{font:inherit;color:#e7e0d3;background:#24282a;border:1px solid #454849;border-radius:5px;padding:10px 14px;min-height:44px}
+#nutty-reader button:disabled{opacity:.35}
+#nutty-reader button:focus-visible,#nutty-reader select:focus-visible{outline:2px solid #c4a56c;outline-offset:3px}
+#nutty-reader .status{color:#beb7aa;min-width:100px;text-align:center}
+#nutty-reader .hint{font-size:12px;color:#aaa79f;text-align:center;margin:12px 0 0}
+#nutty-reader .zoom{display:none;position:absolute;inset:0;background:#151719;overflow:auto;touch-action:pan-x pan-y;z-index:2}
+#nutty-reader .zoom img{display:block;width:150%;max-width:none}
+#nutty-reader .zoom.open{display:block}
+@media(max-width:520px){#nutty-reader{padding:12px 4px}#nutty-reader header{padding-left:12px;padding-right:70px}#nutty-reader h2{font-size:20px}#nutty-reader nav{gap:6px}#nutty-reader button,#nutty-reader select{padding:8px}#nutty-reader .hint{padding:0 10px}}
+</style>
+<header><div><div class="eyebrow">NUTTY'S COMICS</div><h2>The Last Question</h2></div></header>
+<div class="stage"><canvas width="1500" height="1160" aria-label="Interactive comic. Drag the right page left to turn forward, or the left page right to turn back."></canvas><div class="zoom"><img alt="Enlarged comic page"></div></div>
+<nav aria-label="Comic controls"><button data-action="prev" aria-label="Previous spread">← Back</button><span class="status" aria-live="polite">Loading artwork…</span><button data-action="next" aria-label="Next spread">Next →</button><select aria-label="Go to page"></select><button data-action="zoom">Zoom page</button></nav>
+<p class="hint">Grab an outer edge and pull. Release halfway to turn, or pull it back to keep your place.</p>
+<script>
+(()=>{
+const root=document.getElementById('nutty-reader'),canvas=root.querySelector('canvas'),ctx=canvas.getContext('2d'),status=root.querySelector('.status'),select=root.querySelector('select'),zoom=root.querySelector('.zoom');
+const sources=["assets/cover.png","assets/page-01.png","assets/page-02.png","assets/page-03.png","assets/page-04.png","assets/page-05.png","assets/page-06.png","assets/page-07.png","assets/page-08.png","assets/page-09.png","assets/page-10.png","assets/page-11.png","assets/page-12.png"];
+const W=640,H=960,OX=750,OY=90;
+let images=[],spread=0,drag=null,anim=false,ready=false,zoomed=false;
+const maxSpread=Math.ceil(sources.length/2),reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+select.innerHTML='<option value="0">Cover</option>'+sources.slice(1).map((_,i)=>'<option value="'+(i+1)+'">Page '+(i+1)+'</option>').join('');
+function page(index,x,mirror=false){
+ ctx.save();ctx.translate(x,0);if(mirror){ctx.translate(W,0);ctx.scale(-1,1)}
+ ctx.fillStyle='#d8d0bf';ctx.fillRect(0,0,W,H);
+ if(images[index])ctx.drawImage(images[index],0,0,W,H);
+ else {ctx.fillStyle='#242727';ctx.fillRect(0,0,W,H);ctx.fillStyle='#bda77e';ctx.textAlign='center';ctx.font='24px Georgia';ctx.fillText(index<0?'THE LAST QUESTION':'END',W/2,H/2);ctx.font='15px Arial';ctx.fillText('JIGSAW × PINHEAD',W/2,H/2+35)}
+ ctx.restore();
+}
+function polygon(poly){ctx.beginPath();poly.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y));ctx.closePath()}
+function clip(poly,n,m,sign){
+ let out=[];for(let i=0;i<poly.length;i++){const a=poly[i],b=poly[(i+1)%poly.length],da=((a.x-m.x)*n.x+(a.y-m.y)*n.y)*sign,db=((b.x-m.x)*n.x+(b.y-m.y)*n.y)*sign;
+ if(da>=0)out.push(a);if((da>=0)!=(db>=0)){let t=da/(da-db);out.push({x:a.x+t*(b.x-a.x),y:a.y+t*(b.y-a.y)})}}
+ return out;
+}
+function render(){
+ ctx.clearRect(0,0,canvas.width,canvas.height);ctx.save();ctx.translate(OX,OY);
+ ctx.shadowColor='#000b';ctx.shadowBlur=30;ctx.shadowOffsetY=16;ctx.fillStyle='#30302d';ctx.fillRect(-W-4,2,2*W+8,H+7);ctx.shadowColor='transparent';
+ const right=spread*2;
+ if(!drag){page(right-1,-W);page(right,0)}
+ else {
+ const back=drag.dir<0; if(back)ctx.scale(-1,1);
+ const a=back?right-1:right,b=back?right-2:right+1,c=back?right-3:right+2,other=back?right:right-1;
+ page(other,-W,back);page(c,0,back);
+ const P=drag.p,C={x:W,y:drag.corner},dx=C.x-P.x,dy=C.y-P.y,len=Math.hypot(dx,dy);
+ if(len<.1)page(a,0,back);
+ else{
+ const n={x:dx/len,y:dy/len},m={x:(C.x+P.x)/2,y:(C.y+P.y)/2},rect=[{x:0,y:0},{x:W,y:0},{x:W,y:H},{x:0,y:H}];
+ const flat=clip(rect,n,m,-1),fold=clip(rect,n,m,1);
+ ctx.save();polygon(flat);ctx.clip();page(a,0,back);ctx.restore();
+ const k=2*(n.x*m.x+n.y*m.y),reflect=p=>({x:p.x-2*n.x*(n.x*p.x+n.y*p.y)+k*n.x,y:p.y-2*n.y*(n.x*p.x+n.y*p.y)+k*n.y});
+ const folded=fold.map(reflect);
+ ctx.save();polygon(folded);ctx.shadowColor='#0009';ctx.shadowBlur=24;ctx.shadowOffsetX=-8;ctx.shadowOffsetY=8;ctx.fillStyle='#d8d0bf';ctx.fill();ctx.restore();
+ ctx.save();polygon(folded);ctx.clip();
+ ctx.transform(1-2*n.x*n.x,-2*n.x*n.y,-2*n.x*n.y,1-2*n.y*n.y,k*n.x,k*n.y);page(b,0,!back);ctx.restore();
+ ctx.save();polygon(folded);ctx.clip();const g=ctx.createLinearGradient(m.x-n.x*100,m.y-n.y*100,m.x,m.y);g.addColorStop(0,'#0000');g.addColorStop(.75,'#0001');g.addColorStop(1,'#0006');ctx.fillStyle=g;ctx.fillRect(-W-100,-H,2*W+200,3*H);ctx.restore();
+ }if(back)ctx.scale(-1,1);
+ }
+ const spine=ctx.createLinearGradient(-22,0,22,0);spine.addColorStop(0,'#0000');spine.addColorStop(.48,'#0007');spine.addColorStop(.5,'#000a');spine.addColorStop(1,'#0000');ctx.fillStyle=spine;ctx.fillRect(-22,0,44,H);ctx.restore();
+}
+function update(){status.textContent=spread===0?'Cover':spread===maxSpread?'End':'Pages '+(spread*2-1)+'–'+Math.min(spread*2,12);select.value=String(Math.min(spread*2,12));root.querySelector('[data-action=prev]').disabled=spread===0;root.querySelector('[data-action=next]').disabled=spread===maxSpread;render()}
+function point(e){const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*canvas.width/r.width-OX,y:(e.clientY-r.top)*canvas.height/r.height-OY}}
+function start(dir,y){if(!ready||anim||zoomed||(dir===1&&spread>=maxSpread)||(dir===-1&&spread<=0))return false;drag={dir,corner:y<H/2?0:H,p:{x:W-.1,y:y<H/2?0:H}};return true}
+function move(p){if(!drag)return;const x=Math.max(-W,Math.min(W-.1,p.x*drag.dir)),cy=drag.corner;
+ // Constrain the grabbed corner to the paper's reach from the spine.
+ let y=Math.max(-H*.3,Math.min(H*1.3,p.y));const distance=Math.hypot(x,y-cy);if(distance>W){y=cy+(y-cy)*W/distance;drag.p={x:x*W/distance,y}}else drag.p={x,y};render()}
+function settle(commit){if(!drag)return;anim=true;const d=drag,from={...d.p},to={x:commit?-W:W-.05,y:d.corner},duration=reduced?0:320,t0=performance.now();
+ function frame(t){const u=duration?Math.min(1,(t-t0)/duration):1,v=1-Math.pow(1-u,3);d.p={x:from.x+(to.x-from.x)*v,y:from.y+(to.y-from.y)*v};render();if(u<1)requestAnimationFrame(frame);else{if(commit)spread+=d.dir;drag=null;anim=false;update()}}requestAnimationFrame(frame)}
+canvas.addEventListener('pointerdown',e=>{const p=point(e);if(Math.abs(p.x)>W||p.y<0||p.y>H)return;if(start(p.x>=0?1:-1,p.y)){canvas.setPointerCapture(e.pointerId);move(p);e.preventDefault()}});
+canvas.addEventListener('pointermove',e=>{if(drag&&!anim)move(point(e))});
+canvas.addEventListener('pointerup',()=>{if(drag&&!anim)settle(drag.p.x<W*.3)});
+canvas.addEventListener('pointercancel',()=>{if(drag&&!anim)settle(false)});
+function turn(dir){if(drag||anim)return;if(start(dir,H)){drag.p={x:W-2,y:H-2};settle(true)}}
+root.querySelector('[data-action=prev]').onclick=()=>turn(-1);root.querySelector('[data-action=next]').onclick=()=>turn(1);
+select.onchange=()=>{if(anim||drag)return;const chosen=select.value;spread=Math.ceil(Number(chosen)/2);update();select.value=chosen;if(zoomed)showZoom()};
+function showZoom(){const idx=Math.min(Number(select.value),sources.length-1);zoom.querySelector('img').src=sources[idx];zoom.querySelector('img').alt=idx?'Comic page '+idx:'Comic cover'}
+root.querySelector('[data-action=zoom]').onclick=()=>{if(drag||anim)return;zoomed=!zoomed;zoom.classList.toggle('open',zoomed);root.querySelector('[data-action=zoom]').textContent=zoomed?'Close zoom':'Zoom page';if(zoomed)showZoom()};
+root.addEventListener('keydown',e=>{if(e.target.tagName==='SELECT')return;if(e.key==='ArrowRight'){e.preventDefault();turn(1)}if(e.key==='ArrowLeft'){e.preventDefault();turn(-1)}if(e.key==='Escape'&&zoomed)root.querySelector('[data-action=zoom]').click()});
+Promise.all(sources.map(src=>new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=reject;im.src=src}))).then(loaded=>{images=loaded;ready=true;update()}).catch(()=>{status.textContent='Artwork could not load.'});
+})();
+</script>
+</div>
+</body></html>
